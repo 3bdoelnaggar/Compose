@@ -24,6 +24,11 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 
+
+/* this is not min it is copied from alex lockwood gist
+at <href https://gist.github.com/alexjlockwood/a7e778ea263d251d4afdf694aed0f3f6>
+to take inspiration from please check out the original code
+*/
 private const val PI = Math.PI.toFloat()
 private const val HALF_PI = PI / 2
 
