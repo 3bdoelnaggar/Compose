@@ -9,12 +9,14 @@ import androidx.compose.runtime.onActive
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.scale
+import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.unit.dp
 import kotlin.math.cos
 import kotlin.math.sin
@@ -62,36 +64,47 @@ fun StateCircle(modifier: Modifier = Modifier, stateNum: Int = 5) {
 }
 
 fun DrawScope.drawCircles(num: Int, t: Float) {
-    scale(t, t, size.width / 2, size.width / 2) {
-        val r = size.width / 2
-        val partSweepAngle = 260 / num
-        val centerX = size.width / 2
-        val centerY = size.width / 2
-        val startAngle = (Math.PI / 3)
-        val padding = 58.dp.toPx()
-        for (i in 0 until num) {
-            var theta: Double = if (i == 0) {
-                startAngle
-            } else {
-                (startAngle + (i * ((2 * Math.PI) / num)))
-            }
+    val r = size.width / 2
+    val partSweepAngle = 260 / num
+    val centerX = size.width / 2
+    val centerY = size.width / 2
+    val startAngle = (Math.PI / 3)
+    val padding = 58.dp.toPx()
+    for (i in 0 until num) {
+        var theta: Double = if (i == 0) {
+            startAngle
+        } else {
+            (startAngle + (i * ((2 * Math.PI) / num)))
+        }
 
-            val newX = centerX + cos(theta) * (r)
-            val newY = centerY + sin(theta) * (r)
-            val x = (r * sin(theta))
-            val y = (r * cos(theta))
+        val newX = centerX + cos(theta) * (r)
+        val newY = centerY + sin(theta) * (r)
+        val x = (r * sin(theta))
+        val y = (r * cos(theta))
+        withTransform({
+            scale(1f, 1f, size.width/2, size.width/2)
+        }, {
             drawCircle(
                     color = Color(
                             red = Random.nextFloat(),
                             blue = Random.nextFloat(),
                             green = Random.nextFloat()
                     ),
-                    radius = 100f,
+                    radius = t*100f,
                     center = Offset(newX.toFloat(), newY.toFloat())
+            )
+            drawArc(
+                    color = Color.Black,
+                    startAngle = 30f,
+                    sweepAngle = 300f,
+                    useCenter = true,
+                    size = Size(200f, 200f),
+                    topLeft = Offset(newX.toFloat() - 100f, newY.toFloat() - 100f)
             )
             Log.d("xxxxxcordainte", "angle = $theta r =$r  x =$x y =$y padding = $padding  ")
             theta += partSweepAngle
-        }
+        })
+
     }
 }
 

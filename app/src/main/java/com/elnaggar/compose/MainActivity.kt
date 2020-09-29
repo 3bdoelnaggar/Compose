@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            StateCircle(modifier = Modifier.fillMaxSize().padding(58.dp),stateNum = 8)
+            StateCircle(modifier = Modifier.fillMaxSize().padding(58.dp),stateNum = 6 )
         }
     }
 }
