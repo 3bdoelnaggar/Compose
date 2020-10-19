@@ -1,19 +1,14 @@
-package com.elnaggar.compose
+package com.elnaggar.compose.screens
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.setContent
 import androidx.compose.ui.unit.dp
-import androidx.ui.tooling.preview.Preview
-import com.elnaggar.compose.ui.ComposeTheme
+import com.elnaggar.compose.animations.CircleSquare
 
-class Animation : AppCompatActivity() {
+class AlexLockWoodCircleSquareAnimationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

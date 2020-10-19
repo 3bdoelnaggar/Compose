@@ -1,4 +1,4 @@
-package com.elnaggar.compose
+package com.elnaggar.compose.animations
 
 import androidx.compose.animation.animatedFloat
 import androidx.compose.animation.core.AnimationConstants
@@ -25,7 +25,7 @@ import kotlin.math.sqrt
 
 
 
-/* this is not min it is copied from alex lockwood gist
+/* this is not mine it is copied from alex lockwood gist
 at <href https://gist.github.com/alexjlockwood/a7e778ea263d251d4afdf694aed0f3f6>
 to take inspiration from please check out the original code
 */
