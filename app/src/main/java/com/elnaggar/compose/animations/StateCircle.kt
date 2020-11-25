@@ -84,9 +84,7 @@ fun DrawScope.drawCircles(num: Int, t: Float) {
         val newY = centerY + sin(theta) * (r)
         val x = (r * sin(theta))
         val y = (r * cos(theta))
-        withTransform({
-            scale(1f, 1f, size.width / 2, size.width / 2)
-        }, {
+
             val color = Color(
                     red = -(1f*t)+1f,
                     blue = -(1f*t)+1f,
@@ -107,7 +105,7 @@ fun DrawScope.drawCircles(num: Int, t: Float) {
 //            )
             Log.d("xxxxxcordainte", "angle = $theta r =$r  x =$x y =$y padding = $padding  color=${color.toString()}")
             theta += partSweepAngle
-        })
+
 
     }
 }
@@ -124,11 +122,4 @@ fun DrawScope.drawPart(part: Int, sweepAngle: Float) {
 }
 
 
-// return where that part start
-fun getStartAngelByPart(part: Int, sweepAngle: Float): Int {
-    var returnedValue = 198 + part * sweepAngle.toInt()
-    if (returnedValue > 360) {
-        returnedValue %= 360
-    }
-    return returnedValue
-}
+
